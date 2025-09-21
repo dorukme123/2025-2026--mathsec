@@ -2,7 +2,7 @@
 ## Author
 author:
   name: Каймакджыоглу Мерич Дорук
-  email: --
+  email: 1032245391@pfur.ru
   affiliation:
     - name: Российский университет дружбы народов
       country: Российская Федерация
@@ -11,55 +11,169 @@ author:
       address: ул. Миклухо-Маклая, д. 6
 
 ## Title
-title: "Шаблон отчёта по лабораторной работе"
-subtitle: "Простейший вариант"
+title: "Отчёт по лабораторной работе №1"
+subtitle: "Шифры простой замены: Шифр Цезаря и Атбаш"
 license: "CC BY"
 ---
 
 # Цель работы
 
-Здесь приводится формулировка цели лабораторной работы.
-Формулировки цели для каждой лабораторной работы приведены в методических указаниях.
-
-Цель данного шаблона --- максимально упростить подготовку отчётов по лабораторным работам.
-Модифицируя данный шаблон, студенты смогут без труда подготовить отчёт по лабораторным работам, а также познакомиться с основными возможностями разметки Markdown.
+Изучить принципы работы шифров простой замены, а также получить практические навыки реализации шифра Цезаря с произвольным ключом и шифра Атбаш с использованием языка программирования Python.
 
 # Задание
 
-Здесь приводится описание задания в соответствии с рекомендациями методического пособия и выданным вариантом.
+1. Реализовать шифр Цезаря с произвольным ключом k для русского и английского алфавитов.
+2. Реализовать шифр Атбаш для русского и английского алфавитов.
+3. Подготовить отчёт и презентацию по выполненной работе.
 
 # Теоретическое введение
 
-Здесь описываются теоретические аспекты, связанные с выполнением работы.
+Шифры простой замены представляют собой класс шифров, в которых каждый символ исходного текста заменяется на соответствующий ему символ из шифроалфавита.
 
-Например, в [табл. @tbl-std-dir] приведено краткое описание стандартных каталогов Unix.
+Шифр Цезаря является одним из самых известных и простых шифров. Это моноалфавитный шифр, в котором каждый символ исходного алфавита смещается на определенное количество позиций (k — ключ) вперед или назад. Математически операцию шифрования для символа с номером i можно описать как (i + k) mod m, а дешифрования — как (i - k) mod m, где m — это мощность алфавита.
 
-| Имя каталога | Описание каталога                                                                                                          |
-|--------------|----------------------------------------------------------------------------------------------------------------------------|
-| `/`          | Корневая директория, содержащая всю файловую                                                                               |
-| `/bin `      | Основные системные утилиты, необходимые как в однопользовательском режиме, так и при обычной работе всем пользователям     |
-| `/etc`       | Общесистемные конфигурационные файлы и файлы конфигурации установленных программ                                           |
-| `/home`      | Содержит домашние директории пользователей, которые, в свою очередь, содержат персональные настройки и данные пользователя |
-| `/media`     | Точки монтирования для сменных носителей                                                                                   |
-| `/root`      | Домашняя директория пользователя  `root`                                                                                   |
-| `/tmp`       | Временные файлы                                                                                                            |
-| `/usr`       | Вторичная иерархия для данных пользователя                                                                                 |
-
-: Описание некоторых каталогов файловой системы GNU Linux {#tbl-std-dir}
-
-Более подробно про Unix см. в [@tanenbaum_book_modern-os_ru; @robbins_book_bash_en; @zarrelli_book_mastering-bash_en; @newham_book_learning-bash_en].
+Шифр Атбаш — это частный случай шифра простой замены, изначально использовавшийся для иврита. Его суть заключается в замене первой буквы алфавита на последнюю, второй — на предпоследнюю, и так далее. Фактически, алфавит для шифрования является инверсией (обратной записью) исходного алфавита. Шифрование и дешифрование выполняются по одному и тому же правилу.
 
 # Выполнение лабораторной работы
 
-Описываются проведённые действия, в качестве иллюстрации даётся ссылка на иллюстрацию ([рис. @fig-001]).
+Для выполнения задания был написан скрипт на языке Python, который реализует оба шифра и предоставляет пользователю интерактивный интерфейс для выбора шифра, языка, режима (шифрование/дешифрование) и ввода данных.
 
-![V Сольвеевский конгресс (1927) «Электроны и фотоны»](image/solvay.jpg){#fig-001 width=70%}
+```
+ALPHABET_EN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ALPHABET_RU = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+
+def caesar_cypher(text, key, alphabet, encrypt=True):
+    result = ""
+    m = len(alphabet)
+
+    for char in text:
+        char_upper = char.upper()
+        if char_upper in alphabet:
+            char_index = alphabet.find(char_upper)
+
+            if encrypt:
+                shifted_index = (char_index + key) % m
+            else:
+                shifted_index = (char_index - key + m) % m
+
+            shifted_char = alphabet[shifted_index]
+
+            if char.islower():
+                result += shifted_char.lower()
+            else:
+                result += shifted_char
+        else:
+            result += char
+    
+    return result
+
+def atbash_cypher(text, alphabet):
+    result = ""
+    reversed_alphabet = alphabet[::-1]
+
+    for char in text:
+        char_upper = char.upper()
+        if char_upper in alphabet:
+            char_index = alphabet.find(char_upper)
+            reversed_char = reversed_alphabet[char_index]
+
+            if char.islower():
+                result += reversed_char.lower()
+            else:
+                result += reversed_char
+        else:
+            result += char
+    
+    return result
+
+def main():
+    print("Ciphers")
+
+    while True:
+        cipher_choice = input("1: Caesar, 2: Atbash or exit:").strip().lower()
+
+        if cipher_choice == 'exit':
+            break
+        if cipher_choice not in ['1', '2']:
+            print("İnvalid")
+            continue
+
+        long_choice = input("Alphabet input (1: English, 2: Russian)").strip()
+        if long_choice == '1':
+            alphabet = ALPHABET_EN
+        elif long_choice == '2':
+            alphabet = ALPHABET_RU
+        else:
+            print("İnvalid")
+            continue
+
+        made_choice = input("1: Encrypt, 2: Decrypt").strip()
+        if made_choice not in ['1', '2']:
+            print("İnvalid")
+            continue
+        
+        text = input("Enter the text: ")
+
+        if cipher_choice == '1':
+            try:
+                key = int(input("Key int: "))
+            except ValueError:
+                print("İnvalid")
+                continue
+
+            is_encrypting = (made_choice == '1')
+            processed_text = caesar_cypher(text, key, alphabet, is_encrypting)
+            action = "Encrypted" if is_encrypting else "Decrypted"
+            print(f"--- {action} text (Caesar): {processed_text}\n")
+        elif cipher_choice == '2':
+            processed_text = atbash_cypher(text, alphabet)
+            action = "Encrypted/Decrypted"
+            print(f"--- {action} text (Caesar): {processed_text}\n")
+
+if __name__ == "__main__":
+    main()
+```
+
+Примеры работы:
+```
+Ciphers
+1: Caesar, 2: Atbash or exit:1
+Alphabet input (1: English, 2: Russian)1
+1: Encrypt, 2: Decrypt1
+Enter the text: Veni, vidi, vici
+Key int: 3
+--- Encrypted text (Caesar): Yhql, ylgl, ylfl
+
+1: Caesar, 2: Atbash or exit:1
+Alphabet input (1: English, 2: Russian)2
+1: Encrypt, 2: Decrypt1
+Enter the text: Пришел, увидел, победил
+Key int: 5
+--- Encrypted text (Caesar): Фхнэйр, шжнийр, фуёйинр
+
+1: Caesar, 2: Atbash or exit:2
+Alphabet input (1: English, 2: Russian)1
+1: Encrypt, 2: Decrypt1
+Enter the text: Hello World
+--- Encrypted/Decrypted text (Caesar): Svool Dliow
+
+1: Caesar, 2: Atbash or exit:2
+Alphabet input (1: English, 2: Russian)2
+1: Encrypt, 2: Decrypt1
+Enter the text: Простая замена
+--- Encrypted/Decrypted text (Caesar): Порнмяа чятъся
+
+1: Caesar, 2: Atbash or exit:2
+Alphabet input (1: English, 2: Russian)2
+1: Encrypt, 2: Decrypt2
+Enter the text: Порнмяа чятъся
+--- Encrypted/Decrypted text (Caesar): Простая замена
+```
 
 # Выводы
 
-Здесь кратко описываются итоги проделанной работы.
+В ходе выполнения лабораторной работы были изучены и реализованы шифры простой замены — шифр Цезаря и шифр Атбаш. Созданная программа успешно выполняет операции шифрования и дешифрования для русского и английского языков. Было продемонстрировано, что данные шифры являются простыми в реализации, однако обладают низкой криптографической стойкостью, так как сохраняют частотные характеристики исходного языка, что делает их уязвимыми для атак на основе частотного анализа.
 
 # Список литературы{.unnumbered}
 
-::: {#refs}
-:::
+::: {#Методические указания к лабораторной работе №1.}
