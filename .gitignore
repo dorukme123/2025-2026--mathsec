@@ -364,3 +364,7 @@ plugins
 .vbox/
 .config/
 vm/
+
+## etc
+Check_list_for_labs.txt
+Example_answer.txt
