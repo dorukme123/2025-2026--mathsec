@@ -1,10 +1,8 @@
 ---
 ## Author
 author:
-  name: Дмитрий Сергеевич Кулябов
-  degrees: DSc
-  orcid: 0000-0002-0877-7063
-  email: kulyabov-ds@rudn.ru
+  name: Каймакджыоглу Мерич Дорук
+  email: 1032245391@pfur.ru
   affiliation:
     - name: Российский университет дружбы народов
       country: Российская Федерация
@@ -13,55 +11,385 @@ author:
       address: ул. Миклухо-Маклая, д. 6
 
 ## Title
-title: "Шаблон отчёта по лабораторной работе"
-subtitle: "Простейший вариант"
+title: "Отчёт по лабораторной работе №2"
+subtitle: "Шифры перестановки и полиалфавитные шифры"
 license: "CC BY"
 ---
 
 # Цель работы
 
-Здесь приводится формулировка цели лабораторной работы.
-Формулировки цели для каждой лабораторной работы приведены в методических указаниях.
-
-Цель данного шаблона --- максимально упростить подготовку отчётов по лабораторным работам.
-Модифицируя данный шаблон, студенты смогут без труда подготовить отчёт по лабораторным работам, а также познакомиться с основными возможностями разметки Markdown.
+Целью данной лабораторной работы является изучение и практическая реализация классических шифров, основанных на перестановке символов и полиалфавитной замене. Необходимо разработать программное обеспечение на языке Python для шифрования и дешифрования сообщений с использованием маршрутного шифра, шифра Виженера и шифра с решёткой Флейснера.
 
 # Задание
 
-Здесь приводится описание задания в соответствии с рекомендациями методического пособия и выданным вариантом.
+1. Реализовать маршрутный шифр (столбцовая перестановка): Программа должна позволять шифровать и дешифровать текст с использованием ключа-пароля.
+2. Реализовать шифр Виженера: Программа должна поддерживать шифрование и дешифрование для русского (в двух вариантах алфавита) и английского языков.
+3. Реализовать шифр с решёткой Флейснера: Программа должна выполнять шифрование текста с использованием решётки заданного размера k и пароля для финальной перестановки.
 
 # Теоретическое введение
 
-Здесь описываются теоретические аспекты, связанные с выполнением работы.
+В криптографии шифры перестановки изменяют порядок символов в открытом тексте, не меняя сами символы. Полиалфавитные шифры, в свою очередь, используют несколько шифралфавитов для замены, что значительно усложняет частотный анализ по сравнению с шифрами простой замены.
 
-Например, в [табл. @tbl-std-dir] приведено краткое описание стандартных каталогов Unix.
+Маршрутное шифрование
+Этот метод является шифром перестановки. Текст записывается в прямоугольную матрицу по строкам, а считывается по столбцам в порядке, определяемом алфавитным порядком букв в ключевом слове. Это эффективно перемешивает символы исходного сообщения.
 
-| Имя каталога | Описание каталога                                                                                                          |
-|--------------|----------------------------------------------------------------------------------------------------------------------------|
-| `/`          | Корневая директория, содержащая всю файловую                                                                               |
-| `/bin `      | Основные системные утилиты, необходимые как в однопользовательском режиме, так и при обычной работе всем пользователям     |
-| `/etc`       | Общесистемные конфигурационные файлы и файлы конфигурации установленных программ                                           |
-| `/home`      | Содержит домашние директории пользователей, которые, в свою очередь, содержат персональные настройки и данные пользователя |
-| `/media`     | Точки монтирования для сменных носителей                                                                                   |
-| `/root`      | Домашняя директория пользователя  `root`                                                                                   |
-| `/tmp`       | Временные файлы                                                                                                            |
-| `/usr`       | Вторичная иерархия для данных пользователя                                                                                 |
+Шифр с решёткой Флейснера
+Это комбинация шифра перестановки и стеганографии. Текст записывается в ячейки квадратной сетки через отверстия в специальном трафарете (решётке). Решётка последовательно поворачивается на 90°, и на каждом шаге в пустые ячейки вписываются новые символы. Заполненная сетка затем шифруется методом маршрутной перестановки.
 
-: Описание некоторых каталогов файловой системы GNU Linux {#tbl-std-dir}
-
-Более подробно про Unix см. в [@tanenbaum_book_modern-os_ru; @robbins_book_bash_en; @zarrelli_book_mastering-bash_en; @newham_book_learning-bash_en].
+Шифр Виженера
+Это классический полиалфавитный шифр. Он использует ключевое слово для циклического сдвига букв в исходном тексте. Каждая буква ключа определяет, на сколько позиций сдвигается соответствующая буква текста. 
 
 # Выполнение лабораторной работы
 
-Описываются проведённые действия, в качестве иллюстрации даётся ссылка на иллюстрацию ([рис. @fig-001]).
+Проект был структурирован с использованием модульного подхода для ясности и переиспользования кода.
+- main.py: Главный файл, предоставляющий пользователю меню для выбора шифра.
+- utils.py: Содержит общие ресурсы, такие как алфавиты и функции фильтрации текста.
+- route_cipher.py: Реализация маршрутного шифра.
+- vigenere_cipher.py: Реализация шифра Виженера.
+- grille_cipher.py: Реализация шифра с решёткой Флейснера.
 
-![V Сольвеевский конгресс (1927) «Электроны и фотоны»](image/solvay.jpg){#fig-001 width=70%}
+Фрагменты кода и демонстрация:
+main.py (Меню запуска)
+```Python
+import subprocess
+import sys
+
+def main():
+    scripts = {
+        "1": "route_cipher.py",
+        "2": "grille_cipher.py",
+        "3": "vigenere_cipher.py"
+    }
+
+    while True:
+        print("\nCiphers:")
+        print("1- Route cipher")
+        print("2- Rot Grille cipher")
+        print("3- Vigenere cipher")
+        choice = input("Enter cipher to choose or 'exit': ").strip().lower()
+
+        if choice == 'exit':
+            break
+
+        script_to_run = scripts.get(choice)
+
+        if script_to_run:
+            try:
+                subprocess.run([sys.executable, script_to_run], check=True)
+            except FileNotFoundError:
+                print("File not found")
+            except subprocess.CalledProcessError:
+                print("Error!")
+        else:
+            print("invalid choice")
+
+if __name__ == "__main__":
+    main()
+```
+
+utils.py (Содержит общие ресурсы)
+```Python
+ALPHABET_EN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ALPHABET_RU = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+ALPHABET_RU_NO_YU = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+
+def filter_text(text, alphabet):
+    if '' not in alphabet:
+        text = text.replace('Ё', 'Е').replace('ё', 'е')
+    return "".join([char for char in text.upper() if char in alphabet])
+```
+
+route_cipher.py (Реализация маршрутного шифра)
+```Python
+import math
+
+def route_encrypt(text, key):
+    key = key.upper()
+    key_order = sorted([(char, i) for i, char in enumerate(key)])
+
+    num_cols = len(key)
+    num_rows = math.ceil(len(text) / num_cols)
+
+    padded_text = text.ljust(num_rows * num_cols, 'X')
+
+    grid = [list(padded_text[i*num_cols:(i+1)*num_cols]) for i in range(num_rows)]
+
+    ciphertext = ""
+
+    for _, col_index in key_order:
+        for row_index in range(num_rows):
+            ciphertext += grid[row_index][col_index]
+    return ciphertext
+
+def route_decrypt(ciphertext, key):
+    key = key.upper()
+    key_order = sorted([(char, i) for i, char in enumerate(key)])
+
+    num_cols = len(key)
+    num_rows = math.ceil(len(ciphertext) / num_cols)
+
+    num_full_cols = len(ciphertext) % num_cols
+    if num_full_cols == 0 and len(ciphertext) > 0:
+        num_full_cols = num_cols
+
+    col_lenghts = [0] * num_cols
+    sorted_indices = [i for _, i in key_order]
+
+    for i in range(num_cols):
+        if i < num_full_cols:
+            col_lenghts[sorted_indices[i]] = num_rows
+        else:
+            col_lenghts[sorted_indices[i]] = num_rows - 1
+
+    grid = [['' for _ in range(num_cols)] for _ in range(num_rows)]
+    text_ptr = 0
+
+    for _, col_index in key_order:
+        for row_index in range(col_lenghts[col_index]):
+            grid[row_index][col_index] = ciphertext[text_ptr]
+            text_ptr += 1
+    
+    plaintext = "".join(["".join(row) for row in grid])
+    return plaintext.strip('X')
+
+def main():
+    print("Route cipher:")
+    action = input("1: Encrypt, 2: Decrypt: ").strip()
+    if action not in ['1', '2']:
+        return
+    
+    is_encrypting = (action == '1')
+    text = input("Text: ")
+    key = input("Key: ")
+
+    if is_encrypting:
+        filtered_text = "".join(filter(str.isalnum, text)).upper()
+        processed_text = route_encrypt(filtered_text, key)
+        print(f"Route encrypted text: {processed_text}")
+    else:
+        processed_text = route_decrypt(text, key)
+        print(f"Route decrypted text: {processed_text}")
+
+if __name__ == "__main__":
+    main()
+```
+Демонстрация работы маршрутного шифра:
+```
+Ciphers:
+1- Route cipher
+2- Rot Grille cipher
+3- Vigenere cipher
+Enter cipher to choose or 'exit': 1
+Route cipher:
+1: Encrypt, 2: Decrypt: 1
+Text: нельзя недооценивать противника
+Key: пароль 
+Route encrypted text: ЕЕНПНЗОАТАЬОВОКННЕЬВЛДИРИЯЦТИX
+
+Ciphers:
+1- Route cipher
+2- Rot Grille cipher
+3- Vigenere cipher
+Enter cipher to choose or 'exit': 1
+Route cipher:
+1: Encrypt, 2: Decrypt: 2
+Text: ЕЕНПНЗОАТАЬОВОКННЕЬВЛДИРИЯЦТИX
+Key: пароль
+Route decrypted text: НЕЛЬЗЯНЕДООЦЕНИВАТЬПРОТИВНИКА
+```
+
+vigenere_cipher.py (Реализация шифра Виженера)
+```Python
+from utils import ALPHABET_RU, ALPHABET_RU_NO_YU, ALPHABET_EN, filter_text
+
+def vigenere_cipher(text, key, alphabet, encrypt=True):
+    key = filter_text(key, alphabet)
+    if not key:
+        return "Error no valid chars"
+    
+    result = []
+    key_len = len(key)
+    text_alpha_chars = 0
+
+    for char in text:
+        if 'Ё' not in alphabet:
+            if char.upper() == 'Ё':
+                char = 'е' if char.islower() else 'Е'
+        
+        char_upper = char.upper()
+        if char_upper in alphabet:
+            key_char = key[text_alpha_chars % key_len]
+            key_index = alphabet.find(key_char)
+            text_index = alphabet.find(char_upper)
+
+            if encrypt:
+                shifted_index = (text_index + key_index) % len(alphabet)
+            else: # decrypt
+                shifted_index = (text_index - key_index + len(alphabet)) % len(alphabet)
+            
+            shifted_char = alphabet[shifted_index]
+            result.append(shifted_char.lower() if char.islower() else shifted_char)
+            text_alpha_chars += 1
+        else:
+            result.append(char)
+    return "".join(result)
+
+def main():
+    print("Vigenere cipher:")
+    lang_choice = input("1: Russian, 2: English: ").strip()
+
+    if lang_choice == '1':
+        alphabet_version = input("1: 32 letter RU, 2: 33 letter RU: ").strip()
+        if alphabet_version == '1':
+            alphabet = ALPHABET_RU_NO_YU
+            print("Using 32 letter alphabet")
+        else:
+            alphabet = ALPHABET_RU
+            print("Using 33 letter alphabet")
+    elif lang_choice == '2':
+        alphabet = ALPHABET_EN
+    else:
+        return
+    
+    action = input("1: Encrypt, 2: Decrypt: ")
+    if action not in ['1', '2']:
+        print("İnvalid")
+        return
+    
+    is_encrypting = (action == '1')
+    text = input("Text: ")
+    key = input("Key: ")
+
+    processed_text = vigenere_cipher(text, key, alphabet, is_encrypting)
+    action_str = "Encrypted" if is_encrypting else "Decrypted"
+    print(f" Vigenere text {action_str}: {processed_text}")
+
+if __name__ == "__main__":
+    main()
+```
+Демонстрация работы шифра Виженера:
+```
+Ciphers:
+1- Route cipher
+2- Rot Grille cipher
+3- Vigenere cipher
+Enter cipher to choose or 'exit': 3
+Vigenere cipher:
+1: Russian, 2: English: 1
+1: 32 letter RU, 2: 33 letter RU: 1
+Using 32 letter alphabet
+1: Encrypt, 2: Decrypt: 1
+Text: криптография серьезная наука
+Key: математика
+ Vigenere text Encrypted: цръфюохшкффя гкььчпчал нтшца
+
+Ciphers:
+1- Route cipher
+2- Rot Grille cipher
+3- Vigenere cipher
+Enter cipher to choose or 'exit': 3
+Vigenere cipher:
+1: Russian, 2: English: 1
+1: 32 letter RU, 2: 33 letter RU: 1
+Using 32 letter alphabet
+1: Encrypt, 2: Decrypt: 2
+Text: цръфюохшкффя гкььчпчал нтшца
+Key: математика
+ Vigenere text Decrypted: криптография серьезная наука
+```
+
+grille_cipher.py (Реализация шифра с решёткой Флейснера)
+```Python
+from route_cipher import route_encrypt
+
+def create_grille_map(k):
+    grid_size = 2 * k
+    claimed_coords = set()
+    hole_coords = []
+
+    for r in range(grid_size):
+        for c in range(grid_size):
+            coord = (r, c)
+
+            if coord in claimed_coords:
+                continue
+            
+            hole_coords.append(coord)
+
+            rotations = [
+                coord,                                      # 0 deg
+                (c, grid_size - 1 - r),                     # 90deg
+                (grid_size - 1 - r, grid_size - 1 - c),     # 180 deg
+                (grid_size - 1 - c, r)                      # 270 deg
+            ]
+
+            for rot_coord in rotations:
+                claimed_coords.add(rot_coord)
+
+            if len(hole_coords) == k * k:
+                return sorted(hole_coords)
+    return sorted(hole_coords)
+
+def grille_encrypt(text, k, password):
+    grid_size = 2 * k
+    filtered_text = "".join(filter(str.isalnum, text)).upper()
+
+    if len(filtered_text) > grid_size*grid_size:
+        return "error gril size"
+    
+    padded_text = filtered_text.ljust(grid_size * grid_size, 'X')
+
+    hole_coords = create_grille_map(k)
+    if len(hole_coords) != k*k:
+        return "Error not valid grille"
+    
+    grid = [['' for _ in range(grid_size)] for _ in range(grid_size)]
+    text_ptr = 0
+
+    for _ in range(4): # 4 placements
+        for r, c in hole_coords:
+            if text_ptr < len(padded_text):
+                grid[r][c] = padded_text[text_ptr]
+                text_ptr += 1
+        hole_coords = sorted([(c, grid_size - 1 - r) for r, c in hole_coords])
+    final_text = "".join(["".join(row) for row in grid])
+
+    return route_encrypt(final_text, password)
+
+def main():
+    print("\nGrille cipher:")
+    try:
+        text = input("Text: ")
+        k_str = input("Grille base size: (2 for 4x4) ")
+        k = int(k_str)
+        password = input("Enter key: ")
+
+        if len(password) != 2*k:
+            print("Warning")
+        
+        processed_text = grille_encrypt(text, k, password)
+        print(f"Grille encrypted text: {processed_text}")
+    except ValueError:
+        print("İnvalid")
+    except Exception as e:
+        print(f"Exception {e}")
+
+if __name__ == "__main__":
+    main()
+```
+Демонстрация работы шифра с решёткой Флейснера:
+```
+Grille cipher:
+Text: договор подписали
+Grille base size: (2 for 4x4) 2
+Enter key: шифр
+Grille encrypted text: ООЛДВРПИГООПДСАИ
+```
 
 # Выводы
 
-Здесь кратко описываются итоги проделанной работы.
+В ходе выполнения данной лабораторной работы были успешно изучены и реализованы три классических криптографических алгоритма. Разделение проекта на модули позволило создать чистый и поддерживаемый код. Были решены практические задачи, связанные с особенностями реализации каждого шифра, включая обработку различных алфавитов и исправление логических ошибок для соответствия каноническим примерам. Работа позволила получить глубокое понимание принципов шифров перестановки и полиалфавитных шифров.
 
 # Список литературы{.unnumbered}
 
-::: {#refs}
-:::
+::: {#Методические указания к лабораторной работе №2.}
