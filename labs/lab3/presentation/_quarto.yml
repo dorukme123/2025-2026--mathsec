@@ -20,7 +20,7 @@ format:
     number-sections: true
     colorlinks: false
     toc-depth: 2
-    slide_level: 2
+    slide-level: 2
     aspectratio: 169
     section-titles: true
     incremental: true
