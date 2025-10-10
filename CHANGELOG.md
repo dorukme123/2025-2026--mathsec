@@ -1,3 +1,12 @@
+# [4.0.0](github.com/dorukme123/2025-2026--mathsec/compare/v3.0.0...v4.0.0) (2025-10-10)
+
+
+### Features
+
+* **lab03:** change lab03 repo ([4e32c8b](github.com/dorukme123/2025-2026--mathsec/commits/4e32c8be3c77dfeb66dfce36fef0a7f5d65f6e22))
+
+
+
 # [2.0.0](github.com/dorukme123/2025-2026--mathsec/compare/v1.0.0...v2.0.0) (2025-09-21)
 
 
