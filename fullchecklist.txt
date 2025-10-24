@@ -57,7 +57,7 @@ take the files from report markdown and output files zip them and put them with 
 make the same for presentation
 - git flow release start 2.0.0
 goto package.json change the version to 2.0.0
-- standart-changelog
+- standard-changelog
 after this copy the CHANGELOG.md and paste it to release folder change the old one
 - git add .
 - git cz
