@@ -1,0 +1,75 @@
+!!! how to create the repo and all !!!
+go to GitHub
+GitHub cli: sudo apt install gh
+- gh auth login 
+- mkdir 2026-1--study-mathsec
+- cd 2026-1--study-mathsec
+- gh repo create 2026-1--study-mathsec --template=yamadharma/course-directory-student-template --public
+- git clone --recursive git@github.com:yamadharma/course-directory-student-template.git
+copy the files inside the folder and paste them directly into directory
+- mkdir -p release/files
+- make list
+- echo mathsec > COURSE
+see the mathsec
+- make prepare
+see the labs
+goto package.json change the author vs...
+- git add .
+- git commit -m "initial changes"
+- git push --all
+- git flow init
+: all ok
+: prefix = v
+check branch
+- git branch
+- git push -u --all
+- git flow release start 1.0.0
+check package.json to see the release is correct
+- standart-changelog --first-release
+- git add .
+- git cz
+: chore
+: file name main
+: update changelog
+: no
+: no
+- git flow release finish 1.0.0
+: message for the tag = initial release
+- git push --all
+- git push --tags
+- gh release create v1.0.0 -F ../release/CHANGELOG.md
+
+!!! This is the main flow after finishing every lab !!!
+
+goto lab1 change something in the lab
+- git add .
+- git cz
+: feat = a new feature
+: name = lab01
+: change lab01 report
+- cd labs/lab1/report
+- make
+- cd ..
+- cd presentation
+- make
+check the output files in both directories to make sure files are right.
+take the files from report markdown and output files zip them and put them with the zip inside the release/files folder
+make the same for presentation
+- git flow release start 2.0.0
+goto package.json change the version to 2.0.0
+- standart-changelog
+after this copy the CHANGELOG.md and paste it to release folder change the old one
+- git add .
+- git cz
+: chore
+: main
+: update changelog
+: no
+: no
+- git flow release finish 2.0.0
+: tag = Finish lab01
+- git push --all
+- git push --tags
+- gh release create v2.0.0 -F ../release/CHANGELOG.md ../release/files/*
+
+
