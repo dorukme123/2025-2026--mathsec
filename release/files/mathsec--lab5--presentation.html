@@ -442,8 +442,8 @@
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Каймакджыоглу Мерич Дорук">
-  <meta name="dcterms.date" content="2025-10-25">
-  <title>Лабораторная работа №4</title>
+  <meta name="dcterms.date" content="2025-11-02">
+  <title>Лабораторная работа №5</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -1053,7 +1053,7 @@ margin-right: 0; }
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Лабораторная работа №4</h1>
+  <h1 class="title">Лабораторная работа №5</h1>
   <p class="subtitle">Вычисление наибольшего общего делителя</p>
 
 <div class="quarto-title-authors">
@@ -1070,7 +1070,7 @@ margin-right: 0; }
     </div>
 </div>
 
-  <p class="date">2025-10-25</p>
+  <p class="date">2025-11-02</p>
 </section>
 <section>
 <section id="информация" class="title-slide slide level1 center">
@@ -1100,38 +1100,39 @@ margin-right: 0; }
 <section id="актуальность" class="slide level2">
 <h2>Актуальность</h2>
 <ul>
-<li>Алгоритмы вычисления НОД являются фундаментальными в вычислительной теории чисел и криптографии.</li>
-<li><strong>Расширенный алгоритм Евклида</strong> — это не просто теоретическое упражнение; это основной промышленный инструмент для нахождения <strong>модульных обратных элементов</strong>.</li>
-<li>Без этого алгоритма невозможно было бы вычисление закрытого ключа <span class="math inline">\(d\)</span> в криптосистеме <strong>RSA</strong> (где <span class="math inline">\(d \equiv e^{-1} \pmod{\phi(N)}\)</span>).</li>
-<li>Бинарные алгоритмы демонстрируют, как теоретико-числовые задачи оптимизируются для реальных аппаратных реализаций.</li>
+<li>Вероятностные тесты простоты являются фундаментальным инструментом в современной криптографии.</li>
+<li>Асимметричные криптосистемы, такие как <strong>RSA</strong>, требуют генерации очень больших простых чисел ( <span class="math inline">\(p\)</span> и <span class="math inline">\(q\)</span>).</li>
+<li>Детерминированная проверка на простоту для чисел такого размера вычислительно невозможна.</li>
+<li>Быстрые вероятностные тесты (Ферма, Миллера-Рабина) — это единственный практически применимый метод для <strong>генерации ключей RSA</strong>, что делает их критически важными для информационной безопасности.</li>
 </ul>
 </section>
 <section id="объект-и-предмет-исследования" class="slide level2">
 <h2>Объект и предмет исследования</h2>
 <ul>
-<li><strong>Объект:</strong> Алгоритмы вычислительной теории чисел, применяемые в криптографии.</li>
-<li><strong>Предмет:</strong> Алгоритм Евклида, бинарный алгоритм Евклида, расширенный алгоритм Евклида и расширенный бинарный алгоритм Евклида для вычисления НОД.</li>
+<li><strong>Объект:</strong> Вероятностные алгоритмы в вычислительной теории чисел, применяемые в криптографии.</li>
+<li><strong>Предмет:</strong> Тест Ферма, тест Соловэя-Штрассена и тест Миллера-Рабина для проверки чисел на простоту.</li>
 </ul>
 </section>
 <section id="цели-и-задачи" class="slide level2">
 <h2>Цели и задачи</h2>
 <ul>
-<li><strong>Цель:</strong> Изучить и программно реализовать четыре различных алгоритма для нахождения НОД.</li>
+<li><strong>Цель:</strong> Изучить и программно реализовать три основных вероятностных алгоритма для проверки чисел на простоту.</li>
 <li><strong>Задачи:</strong>
 <ul>
-<li>Реализовать классический алгоритм Евклида, основанный на делении с остатком.</li>
-<li>Реализовать бинарный алгоритм, использующий сдвиги и вычитания.</li>
-<li>Реализовать расширенный алгоритм Евклида для нахождения коэффициентов Безу <span class="math inline">\((x, y)\)</span>.</li>
-<li>Проверить корректность работы всех реализованных функций.</li>
+<li>Реализовать тест Ферма, основанный на Малой теореме Ферма.</li>
+<li>Реализовать алгоритм вычисления символа Якоби.</li>
+<li>Реализовать тест Соловэя-Штрассена, основанный на критерии Эйлера.</li>
+<li>Реализовать тест Миллера-Рабина, являющийся промышленным стандартом.</li>
+<li>Продемонстрировать работу алгоритмов на примерах.</li>
 </ul></li>
 </ul>
 </section>
 <section id="материалы-и-методы" class="slide level2">
 <h2>Материалы и методы</h2>
 <ul>
-<li><strong>Язык программирования:</strong> Python.</li>
-<li><strong>Алгоритмы:</strong> Четыре алгоритма НОД, описанные в методических указаниях.</li>
-<li><strong>Математический аппарат:</strong> Теория чисел, деление с остатком, тождество Безу (линейное представление НОД).</li>
+<li><strong>Язык программирования:</strong> Python (с использованием модульной структуры).</li>
+<li><strong>Алгоритмы:</strong> Тест Ферма, Алгоритм Якоби, Тест Соловэя-Штрассена, Тест Миллера-Рабина.</li>
+<li><strong>Математический аппарат:</strong> Модульная арифметика, Малая теорема Ферма, критерий Эйлера, символ Якоби, свойства нетривиальных корней из 1.</li>
 </ul>
 </section></section>
 <section>
@@ -1142,164 +1143,198 @@ margin-right: 0; }
 <section id="ключевые-алгоритмы" class="slide level2">
 <h2>Ключевые алгоритмы</h2>
 <ul>
-<li><strong>1. Алгоритм Евклида:</strong>
+<li><strong>1. Тест Ферма:</strong>
 <ul>
-<li><strong>Принцип:</strong> <span class="math inline">\(\text{НОД}(a, b) = \text{НОД}(b, a \mod b)\)</span>.</li>
-<li><strong>Завершение:</strong> Когда <span class="math inline">\(r = 0\)</span>, предыдущий <span class="math inline">\(r\)</span> является НОД.</li>
+<li><strong>Принцип:</strong> <span class="math inline">\(a^{p-1}\equiv1(mod~p)\)</span>.</li>
+<li><strong>Проблема:</strong> Простой, но существуют составные “числа Кармайкла”, которые проходят этот тест.</li>
 </ul></li>
-<li><strong>2. Бинарный алгоритм Евклида:</strong>
+<li><strong>2. Тест Соловэя-Штрассена:</strong>
 <ul>
-<li><strong>Принцип:</strong> Использует свойства четности.</li>
-<li><span class="math inline">\(\text{НОД}(a, b) = 2 \cdot \text{НОД}(a/2, b/2)\)</span></li>
-<li><span class="math inline">\(\text{НОД}(a, b) = \text{НОД}(a-b, b)\)</span></li>
-<li><strong>Преимущество:</strong> Заменяет дорогое деление (%) на быстрый сдвиг (&gt;&gt;) и вычитание.</li>
+<li><strong>Принцип:</strong> <span class="math inline">\(a^{\frac{n-1}{2}}\equiv(\frac{a}{n})(mod~n)\)</span>.</li>
+<li><strong>Преимущество:</strong> Более надежен, чем тест Ферма; нет аналогов числам Кармайкла. Требует вычисления символа Якоби <span class="math inline">\((\frac{a}{n})\)</span>.</li>
 </ul></li>
-<li><strong>3. Расширенный алгоритм Евклида:</strong>
+<li><strong>3. Тест Миллера-Рабина:</strong>
 <ul>
-<li><strong>Цель:</strong> Найти <span class="math inline">\(d, x, y\)</span>, для которых <span class="math inline">\(ax + by = d\)</span>.</li>
-<li><strong>Метод:</strong> Поддерживает <span class="math inline">\(x_i\)</span> и <span class="math inline">\(y_i\)</span> на каждом шаге <span class="math inline">\(i\)</span>, выражая остаток <span class="math inline">\(r_i\)</span> как линейную комбинацию <span class="math inline">\(a\)</span> и <span class="math inline">\(b\)</span>.</li>
+<li><strong>Принцип:</strong> Представляет <span class="math inline">\(n-1=2^{s}r\)</span> и проверяет последовательность <span class="math inline">\(a^r, a^{2r}, ..., a^{2^{s-1}r} \pmod{n}\)</span>.</li>
+<li><strong>Преимущество:</strong> Самый надежный из трех. Если <span class="math inline">\(n\)</span> — составное, тест обнаружит это с вероятностью <span class="math inline">\(\ge 3/4\)</span> за одну итерацию. Является промышленным стандартом.</li>
 </ul></li>
 </ul>
 </section>
 <section id="демонстрация" class="slide level2">
 <h2>Демонстрация</h2>
 <ol type="1">
-<li>Классический алгоритм Евклида</li>
+<li>Алгоритм, реализующий тест Ферма (<code>fermat_test.py</code>)</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href></a><span class="kw">def</span> euclidean_gcd(a, b):</span>
-<span id="cb1-2"><a href></a>    r_prev, r_curr <span class="op">=</span> a, b</span>
-<span id="cb1-3"><a href></a>    <span class="co"># prev = a, curr = b</span></span>
-<span id="cb1-4"><a href></a></span>
-<span id="cb1-5"><a href></a>    <span class="cf">while</span> r_curr <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb1-6"><a href></a>        r_next <span class="op">=</span> r_prev <span class="op">%</span> r_curr</span>
-<span id="cb1-7"><a href></a>        r_prev <span class="op">=</span> r_curr</span>
-<span id="cb1-8"><a href></a>        r_curr <span class="op">=</span> r_next</span>
-<span id="cb1-9"><a href></a>    </span>
-<span id="cb1-10"><a href></a>    d <span class="op">=</span> r_prev</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href></a><span class="im">import</span> random</span>
+<span id="cb1-2"><a href></a></span>
+<span id="cb1-3"><a href></a><span class="kw">def</span> fermat_test_single(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-4"><a href></a>    a <span class="op">=</span> random.randint(<span class="dv">2</span>,n<span class="op">-</span><span class="dv">2</span>)</span>
+<span id="cb1-5"><a href></a>    r <span class="op">=</span> <span class="bu">pow</span>(a, n <span class="op">-</span> <span class="dv">1</span>, n)</span>
+<span id="cb1-6"><a href></a></span>
+<span id="cb1-7"><a href></a>    <span class="cf">if</span> r <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb1-8"><a href></a>        <span class="cf">return</span> <span class="st">&quot;probably prime&quot;</span></span>
+<span id="cb1-9"><a href></a>    <span class="cf">else</span>:</span>
+<span id="cb1-10"><a href></a>        <span class="cf">return</span> <span class="st">&quot;composite&quot;</span></span>
 <span id="cb1-11"><a href></a>    </span>
-<span id="cb1-12"><a href></a>    <span class="cf">return</span> d</span>
-<span id="cb1-13"><a href></a></span>
-<span id="cb1-14"><a href></a>vala <span class="op">=</span> <span class="dv">12345</span></span>
-<span id="cb1-15"><a href></a>valb <span class="op">=</span> [<span class="dv">24690</span>, <span class="dv">54321</span>, <span class="dv">12541</span>]</span>
-<span id="cb1-16"><a href></a><span class="cf">for</span> val <span class="kw">in</span> valb:</span>
-<span id="cb1-17"><a href></a>    <span class="bu">print</span>(<span class="ss">f&quot;GCD(</span><span class="sc">{</span>vala<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>val<span class="sc">}</span><span class="ss">) = </span><span class="sc">{</span>euclidean_gcd(vala, val)<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-12"><a href></a><span class="kw">def</span> run_feramn_test(n: <span class="bu">int</span>, t: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-13"><a href></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb1-14"><a href></a>        <span class="cf">return</span> <span class="st">&quot;input must be bigger than or = 5&quot;</span></span>
+<span id="cb1-15"><a href></a>    <span class="cf">if</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb1-16"><a href></a>        <span class="cf">return</span> <span class="st">&quot;composite even&quot;</span></span>
+<span id="cb1-17"><a href></a>    </span>
+<span id="cb1-18"><a href></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(t):</span>
+<span id="cb1-19"><a href></a>        <span class="cf">if</span> fermat_test_single(n) <span class="op">==</span> <span class="st">&quot;composite&quot;</span>:</span>
+<span id="cb1-20"><a href></a>            <span class="cf">return</span> <span class="st">&quot;composite&quot;</span></span>
+<span id="cb1-21"><a href></a>    <span class="cf">return</span> <span class="st">&quot;probably prime&quot;</span></span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
-<li>Бинарный алгоритм Евклида</li>
+<li>Алгоритм вычисления символа Якоби (jacobi_symbol.py)</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href></a><span class="kw">def</span> binaru_gcd(a, b):</span>
-<span id="cb2-2"><a href></a>    g <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb2-3"><a href></a></span>
-<span id="cb2-4"><a href></a>    <span class="cf">while</span> a <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> b <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-5"><a href></a>        a <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb2-6"><a href></a>        b <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb2-7"><a href></a>        g <span class="op">*=</span> <span class="dv">2</span></span>
-<span id="cb2-8"><a href></a>    </span>
-<span id="cb2-9"><a href></a>    u, v <span class="op">=</span> a, b</span>
-<span id="cb2-10"><a href></a></span>
-<span id="cb2-11"><a href></a>    <span class="cf">while</span> u <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb2-12"><a href></a>        <span class="cf">while</span> u <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-13"><a href></a>            u <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb2-14"><a href></a>        <span class="cf">while</span> v <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-15"><a href></a>            v <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb2-16"><a href></a>        <span class="cf">if</span> u <span class="op">&gt;=</span> v:</span>
-<span id="cb2-17"><a href></a>            u <span class="op">=</span> u <span class="op">-</span> v</span>
-<span id="cb2-18"><a href></a>        <span class="cf">else</span>:</span>
-<span id="cb2-19"><a href></a>            v <span class="op">=</span> v <span class="op">-</span> u</span>
-<span id="cb2-20"><a href></a></span>
-<span id="cb2-21"><a href></a>    d <span class="op">=</span> g <span class="op">*</span> v</span>
-<span id="cb2-22"><a href></a></span>
-<span id="cb2-23"><a href></a>    <span class="cf">return</span> d</span>
-<span id="cb2-24"><a href></a></span>
-<span id="cb2-25"><a href></a>vala <span class="op">=</span> <span class="dv">12345</span></span>
-<span id="cb2-26"><a href></a>valb <span class="op">=</span> [<span class="dv">24690</span>, <span class="dv">54321</span>, <span class="dv">12541</span>]</span>
-<span id="cb2-27"><a href></a><span class="cf">for</span> val <span class="kw">in</span> valb:</span>
-<span id="cb2-28"><a href></a>    <span class="bu">print</span>(<span class="ss">f&quot;GCD(</span><span class="sc">{</span>vala<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>val<span class="sc">}</span><span class="ss">) = </span><span class="sc">{</span>binaru_gcd(vala, val)<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href></a><span class="kw">def</span> jacoby_symbol(a: <span class="bu">int</span>, n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb2-2"><a href></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">3</span> <span class="kw">or</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-3"><a href></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">&quot;must be odd integer&quot;</span>)</span>
+<span id="cb2-4"><a href></a>    a <span class="op">=</span> a <span class="op">%</span> n</span>
+<span id="cb2-5"><a href></a>    g <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-6"><a href></a></span>
+<span id="cb2-7"><a href></a>    <span class="cf">while</span> a <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb2-8"><a href></a>        <span class="cf">if</span> a <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb2-9"><a href></a>            <span class="cf">return</span> g</span>
+<span id="cb2-10"><a href></a>        k <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-11"><a href></a>        a1 <span class="op">=</span> a</span>
+<span id="cb2-12"><a href></a>        <span class="cf">while</span> a1 <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> a1 <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb2-13"><a href></a>            a1 <span class="op">//=</span> <span class="dv">2</span></span>
+<span id="cb2-14"><a href></a>            k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-15"><a href></a>        </span>
+<span id="cb2-16"><a href></a>        s <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-17"><a href></a>        <span class="cf">if</span> k <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb2-18"><a href></a>            n_mod_8 <span class="op">=</span> n <span class="op">%</span> <span class="dv">8</span></span>
+<span id="cb2-19"><a href></a>            <span class="cf">if</span> n_mod_8 <span class="op">==</span> <span class="dv">3</span> <span class="kw">or</span> n_mod_8 <span class="op">==</span> <span class="dv">5</span>:</span>
+<span id="cb2-20"><a href></a>                s <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb2-21"><a href></a>        </span>
+<span id="cb2-22"><a href></a>        <span class="cf">if</span> a1 <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb2-23"><a href></a>            <span class="cf">return</span> g <span class="op">*</span> s</span>
+<span id="cb2-24"><a href></a>        </span>
+<span id="cb2-25"><a href></a>        <span class="cf">if</span> (n <span class="op">%</span> <span class="dv">4</span>) <span class="op">==</span> <span class="dv">3</span> <span class="kw">and</span> (a1 <span class="op">%</span> <span class="dv">4</span>) <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb2-26"><a href></a>            s <span class="op">=</span> <span class="op">-</span>s</span>
+<span id="cb2-27"><a href></a>        </span>
+<span id="cb2-28"><a href></a>        a <span class="op">=</span> n <span class="op">%</span> a1</span>
+<span id="cb2-29"><a href></a>        g <span class="op">=</span> g <span class="op">*</span> s</span>
+<span id="cb2-30"><a href></a>    </span>
+<span id="cb2-31"><a href></a>    <span class="cf">return</span> <span class="dv">0</span></span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
-<li>Расширенный алгоритм Евклида</li>
+<li>Алгоритм, реализующий тест Соловэя-Штрассена (solovay_strassen_test.py)</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href></a><span class="co"># test = 91, 105, 154 == 7</span></span>
-<span id="cb3-2"><a href></a></span>
-<span id="cb3-3"><a href></a><span class="kw">def</span> ext_euc_gcd(a, b):</span>
-<span id="cb3-4"><a href></a>    r_prev, r_curr <span class="op">=</span> a, b</span>
-<span id="cb3-5"><a href></a>    x_prev, x_curr <span class="op">=</span> <span class="dv">1</span>, <span class="dv">0</span></span>
-<span id="cb3-6"><a href></a>    y_prev, y_curr <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span></span>
-<span id="cb3-7"><a href></a></span>
-<span id="cb3-8"><a href></a>    <span class="cf">while</span> r_curr <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb3-9"><a href></a>        q <span class="op">=</span> r_prev <span class="op">//</span> r_curr</span>
-<span id="cb3-10"><a href></a>        r_next <span class="op">=</span> r_prev <span class="op">%</span> r_curr</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href></a><span class="im">import</span> random</span>
+<span id="cb3-2"><a href></a><span class="im">from</span> jacobi_test <span class="im">import</span> jacoby_symbol</span>
+<span id="cb3-3"><a href></a></span>
+<span id="cb3-4"><a href></a><span class="kw">def</span> solovay_strassen_test_single(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb3-5"><a href></a>    a <span class="op">=</span> random.randint(<span class="dv">2</span>, n <span class="op">-</span> <span class="dv">2</span>)</span>
+<span id="cb3-6"><a href></a>    r <span class="op">=</span> <span class="bu">pow</span>(a, (n <span class="op">-</span> <span class="dv">1</span>) <span class="op">//</span> <span class="dv">2</span>, n)</span>
+<span id="cb3-7"><a href></a>    </span>
+<span id="cb3-8"><a href></a>    <span class="cf">if</span> r <span class="op">!=</span> <span class="dv">1</span> <span class="kw">and</span> r <span class="op">!=</span> n <span class="op">-</span> <span class="dv">1</span>:</span>
+<span id="cb3-9"><a href></a>        <span class="cf">return</span> <span class="st">&quot;composite&quot;</span></span>
+<span id="cb3-10"><a href></a>    s <span class="op">=</span> jacoby_symbol(a, n)</span>
 <span id="cb3-11"><a href></a></span>
-<span id="cb3-12"><a href></a>        x_next <span class="op">=</span> x_prev <span class="op">-</span> q <span class="op">*</span> x_curr</span>
-<span id="cb3-13"><a href></a>        y_next <span class="op">=</span> y_prev <span class="op">-</span> q <span class="op">*</span> y_curr</span>
-<span id="cb3-14"><a href></a></span>
-<span id="cb3-15"><a href></a>        r_prev, r_curr <span class="op">=</span> r_curr, r_next</span>
-<span id="cb3-16"><a href></a>        x_prev, x_curr <span class="op">=</span> x_curr, x_next</span>
-<span id="cb3-17"><a href></a>        y_prev, y_curr <span class="op">=</span> y_curr, y_next</span>
-<span id="cb3-18"><a href></a>    </span>
-<span id="cb3-19"><a href></a>    d, x, y <span class="op">=</span> r_prev, x_prev, y_prev</span>
-<span id="cb3-20"><a href></a></span>
-<span id="cb3-21"><a href></a>    <span class="cf">return</span> d, x, y</span>
-<span id="cb3-22"><a href></a></span>
-<span id="cb3-23"><a href></a>d1, x1, y1 <span class="op">=</span> ext_euc_gcd(<span class="dv">105</span>, <span class="dv">91</span>)</span>
-<span id="cb3-24"><a href></a>d2, x2, y2 <span class="op">=</span> ext_euc_gcd(<span class="dv">154</span>, d1)</span>
-<span id="cb3-25"><a href></a><span class="bu">print</span>(<span class="ss">f&quot;GDC(105, 91) = </span><span class="sc">{</span>d1<span class="sc">,</span> x1<span class="sc">,</span> y1<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb3-26"><a href></a><span class="bu">print</span>(<span class="ss">f&quot;final GDC(154, 7) = </span><span class="sc">{</span>d2<span class="sc">,</span> x2<span class="sc">,</span> y2<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-12"><a href></a>    <span class="cf">if</span> r <span class="op">==</span> (s <span class="op">+</span> n) <span class="op">%</span> n:</span>
+<span id="cb3-13"><a href></a>        <span class="cf">return</span> <span class="st">&quot;probably prime&quot;</span></span>
+<span id="cb3-14"><a href></a>    <span class="cf">else</span>:</span>
+<span id="cb3-15"><a href></a>        <span class="cf">return</span> <span class="st">&quot;composite&quot;</span></span>
+<span id="cb3-16"><a href></a></span>
+<span id="cb3-17"><a href></a><span class="kw">def</span> run_solovay_strassen_test(n: <span class="bu">int</span>, t: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb3-18"><a href></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb3-19"><a href></a>        <span class="cf">return</span> <span class="st">&quot;input must be bigger than or = 5&quot;</span></span>
+<span id="cb3-20"><a href></a>    <span class="cf">if</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-21"><a href></a>        <span class="cf">return</span> <span class="st">&quot;composite even&quot;</span></span>
+<span id="cb3-22"><a href></a>    </span>
+<span id="cb3-23"><a href></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(t):</span>
+<span id="cb3-24"><a href></a>        <span class="cf">if</span> solovay_strassen_test_single(n) <span class="op">==</span> <span class="st">&quot;composite&quot;</span>:</span>
+<span id="cb3-25"><a href></a>            <span class="cf">return</span> <span class="st">&quot;composite&quot;</span></span>
+<span id="cb3-26"><a href></a>    <span class="cf">return</span> <span class="st">&quot;probably prime&quot;</span></span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="4" type="1">
-<li>Расширенный бинарный алгоритм Евклида</li>
+<li>Алгоритм, реализующий тест Миллера-Рабина (miller_rabin_test.py)</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href></a><span class="kw">def</span> ext_bin_gcd(a, b):</span>
-<span id="cb4-2"><a href></a>    g <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb4-3"><a href></a>    <span class="cf">while</span> a <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> b <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-4"><a href></a>        a <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb4-5"><a href></a>        b <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb4-6"><a href></a>        g <span class="op">*=</span> <span class="dv">2</span></span>
-<span id="cb4-7"><a href></a>    </span>
-<span id="cb4-8"><a href></a>    u, v <span class="op">=</span> a, b</span>
-<span id="cb4-9"><a href></a>    A, B <span class="op">=</span> <span class="dv">1</span>, <span class="dv">0</span></span>
-<span id="cb4-10"><a href></a>    C, D <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span></span>
-<span id="cb4-11"><a href></a></span>
-<span id="cb4-12"><a href></a>    <span class="cf">while</span> u <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb4-13"><a href></a>        <span class="cf">while</span> u <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-14"><a href></a>            u <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb4-15"><a href></a>            <span class="cf">if</span> A <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> B <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-16"><a href></a>                A <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb4-17"><a href></a>                B <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb4-18"><a href></a>            <span class="cf">else</span>:</span>
-<span id="cb4-19"><a href></a>                A <span class="op">=</span> (A <span class="op">+</span> b) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb4-20"><a href></a>                B <span class="op">=</span> (B <span class="op">-</span> a) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb4-21"><a href></a>            <span class="bu">print</span>(<span class="st">&quot;v: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(v))</span>
-<span id="cb4-22"><a href></a></span>
-<span id="cb4-23"><a href></a>        <span class="cf">while</span> v <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-24"><a href></a>            v <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb4-25"><a href></a>            <span class="cf">if</span> C <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> D <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-26"><a href></a>                C <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb4-27"><a href></a>                D <span class="op">//=</span> <span class="dv">2</span></span>
-<span id="cb4-28"><a href></a>            <span class="cf">else</span>:</span>
-<span id="cb4-29"><a href></a>                C <span class="op">=</span> (C <span class="op">+</span> b) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb4-30"><a href></a>                D <span class="op">=</span> (D <span class="op">-</span> a) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb4-31"><a href></a>            <span class="bu">print</span>(<span class="st">&quot;u: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(u))</span>
-<span id="cb4-32"><a href></a></span>
-<span id="cb4-33"><a href></a>        <span class="cf">if</span>  u <span class="op">&gt;=</span> v:</span>
-<span id="cb4-34"><a href></a>            u <span class="op">=</span> u <span class="op">-</span> v</span>
-<span id="cb4-35"><a href></a>            A <span class="op">=</span> A <span class="op">-</span> C</span>
-<span id="cb4-36"><a href></a>            B <span class="op">=</span> B <span class="op">-</span> D</span>
-<span id="cb4-37"><a href></a>        <span class="cf">else</span>:</span>
-<span id="cb4-38"><a href></a>            v <span class="op">=</span> v <span class="op">-</span> u</span>
-<span id="cb4-39"><a href></a>            C <span class="op">=</span> C <span class="op">-</span> A</span>
-<span id="cb4-40"><a href></a>            D <span class="op">=</span> D <span class="op">-</span> B</span>
-<span id="cb4-41"><a href></a>    d <span class="op">=</span> g <span class="op">*</span> v</span>
-<span id="cb4-42"><a href></a>    x <span class="op">=</span> C</span>
-<span id="cb4-43"><a href></a>    y <span class="op">=</span> D</span>
-<span id="cb4-44"><a href></a>    <span class="cf">return</span> d, x, y</span>
-<span id="cb4-45"><a href></a></span>
-<span id="cb4-46"><a href></a>dbin, xbin, ybin <span class="op">=</span> ext_bin_gcd(<span class="dv">105</span>, <span class="dv">91</span>)</span>
-<span id="cb4-47"><a href></a><span class="bu">print</span>(<span class="ss">f&quot;GCD(105, 91) = </span><span class="sc">{</span>dbin<span class="sc">,</span> xbin<span class="sc">,</span> ybin<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href></a><span class="im">import</span> random</span>
+<span id="cb4-2"><a href></a></span>
+<span id="cb4-3"><a href></a><span class="kw">def</span> miller_rabin_test_single(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb4-4"><a href></a>    s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-5"><a href></a>    r <span class="op">=</span> n <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb4-6"><a href></a>    <span class="cf">while</span> r <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-7"><a href></a>        s <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-8"><a href></a>        r <span class="op">//=</span> <span class="dv">2</span></span>
+<span id="cb4-9"><a href></a></span>
+<span id="cb4-10"><a href></a>    a <span class="op">=</span> random.randint(<span class="dv">2</span>, n <span class="op">-</span> <span class="dv">2</span>)</span>
+<span id="cb4-11"><a href></a>    y <span class="op">=</span> <span class="bu">pow</span>(a, r, n)</span>
+<span id="cb4-12"><a href></a></span>
+<span id="cb4-13"><a href></a>    <span class="cf">if</span> y <span class="op">!=</span> <span class="dv">1</span> <span class="kw">and</span> y <span class="op">!=</span> n <span class="op">-</span> <span class="dv">1</span>:</span>
+<span id="cb4-14"><a href></a>        j <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-15"><a href></a>        <span class="cf">while</span> j <span class="op">&lt;=</span> s <span class="op">-</span> <span class="dv">1</span> <span class="kw">and</span> y <span class="op">!=</span> n <span class="op">-</span> <span class="dv">1</span>:</span>
+<span id="cb4-16"><a href></a>            y <span class="op">=</span> <span class="bu">pow</span>(y, <span class="dv">2</span>, n)</span>
+<span id="cb4-17"><a href></a>            <span class="cf">if</span> y <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb4-18"><a href></a>                <span class="cf">return</span> <span class="st">&quot;composite&quot;</span></span>
+<span id="cb4-19"><a href></a>            j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-20"><a href></a>        <span class="cf">if</span> y <span class="op">!=</span> n <span class="op">-</span> <span class="dv">1</span>:</span>
+<span id="cb4-21"><a href></a>            <span class="cf">return</span> <span class="st">&quot;composite&quot;</span></span>
+<span id="cb4-22"><a href></a>    <span class="cf">return</span> <span class="st">&quot;probably prime&quot;</span></span>
+<span id="cb4-23"><a href></a></span>
+<span id="cb4-24"><a href></a><span class="kw">def</span> run_miller_rabin_test(n: <span class="bu">int</span>, t: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb4-25"><a href></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb4-26"><a href></a>        <span class="cf">return</span> <span class="st">&quot;input must be bigger than or = 5&quot;</span></span>
+<span id="cb4-27"><a href></a>    <span class="cf">if</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-28"><a href></a>        <span class="cf">return</span> <span class="st">&quot;composite even&quot;</span></span>
+<span id="cb4-29"><a href></a>    </span>
+<span id="cb4-30"><a href></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(t):</span>
+<span id="cb4-31"><a href></a>        <span class="cf">if</span> miller_rabin_test_single(n) <span class="op">==</span> <span class="st">&quot;composite&quot;</span>:</span>
+<span id="cb4-32"><a href></a>            <span class="cf">return</span> <span class="st">&quot;composite&quot;</span></span>
+<span id="cb4-33"><a href></a>    <span class="cf">return</span> <span class="st">&quot;probably prime&quot;</span></span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="5" type="1">
+<li>Главный файл и демонстрация работы (lab05_primality_tests.py)</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href></a><span class="im">from</span> fermat_test <span class="im">import</span> run_feramn_test</span>
+<span id="cb5-2"><a href></a><span class="im">from</span> sol_stra_test <span class="im">import</span> run_solovay_strassen_test</span>
+<span id="cb5-3"><a href></a><span class="im">from</span> mill_rab_test <span class="im">import</span> run_miller_rabin_test</span>
+<span id="cb5-4"><a href></a></span>
+<span id="cb5-5"><a href></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb5-6"><a href></a>    <span class="cf">try</span>: </span>
+<span id="cb5-7"><a href></a>        n_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;enter n: &quot;</span>)</span>
+<span id="cb5-8"><a href></a>        n <span class="op">=</span> <span class="bu">int</span>(n_input)</span>
+<span id="cb5-9"><a href></a>        t_input <span class="op">=</span> <span class="bu">input</span> (<span class="st">&quot;enter t: &quot;</span>)</span>
+<span id="cb5-10"><a href></a>        t <span class="op">=</span> <span class="bu">int</span>(t_input)</span>
+<span id="cb5-11"><a href></a></span>
+<span id="cb5-12"><a href></a>        <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">5</span> <span class="kw">or</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-13"><a href></a>            <span class="bu">print</span>(<span class="ss">f&quot;Ошибка: </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> должно быть нечетным целым числом &gt;= 5.&quot;</span>)</span>
+<span id="cb5-14"><a href></a>            <span class="cf">if</span> n <span class="op">==</span> <span class="dv">2</span> <span class="kw">or</span> n <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb5-15"><a href></a>                <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> - простое число.&quot;</span>)</span>
+<span id="cb5-16"><a href></a>            <span class="cf">elif</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-17"><a href></a>                <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> - составное число (четное).&quot;</span>)</span>
+<span id="cb5-18"><a href></a>        <span class="cf">elif</span> t <span class="op">&lt;</span> <span class="dv">1</span>:</span>
+<span id="cb5-19"><a href></a>            <span class="bu">print</span>(<span class="st">&quot;Ошибка: количество итераций t должно быть &gt;= 1.&quot;</span>)</span>
+<span id="cb5-20"><a href></a>        <span class="cf">else</span>:</span>
+<span id="cb5-21"><a href></a>            <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">--- Тестирование числа </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> (c </span><span class="sc">{</span>t<span class="sc">}</span><span class="ss"> итерациями) ---&quot;</span>)</span>
+<span id="cb5-22"><a href></a></span>
+<span id="cb5-23"><a href></a>            result_fermat <span class="op">=</span> run_feramn_test(n, t)</span>
+<span id="cb5-24"><a href></a>            <span class="bu">print</span>(<span class="ss">f&quot;1. Тест Ферма: </span><span class="ch">\t\t</span><span class="sc">{</span>result_fermat<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb5-25"><a href></a></span>
+<span id="cb5-26"><a href></a>            result_ss <span class="op">=</span> run_solovay_strassen_test(n, t)</span>
+<span id="cb5-27"><a href></a>            <span class="bu">print</span>(<span class="ss">f&quot;2. Тест Соловэя-Штрассена: </span><span class="ch">\t</span><span class="sc">{</span>result_ss<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb5-28"><a href></a></span>
+<span id="cb5-29"><a href></a>            result_mr <span class="op">=</span> run_miller_rabin_test(n, t)</span>
+<span id="cb5-30"><a href></a>            <span class="bu">print</span>(<span class="ss">f&quot;3. Тест Миллера-Рабина: </span><span class="ch">\t</span><span class="sc">{</span>result_mr<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb5-31"><a href></a></span>
+<span id="cb5-32"><a href></a>            <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">--- Вывод ---&quot;</span>)</span>
+<span id="cb5-33"><a href></a>            <span class="cf">if</span> result_mr <span class="op">==</span> <span class="st">&quot;probably prime&quot;</span>:</span>
+<span id="cb5-34"><a href></a>                <span class="bu">print</span>(<span class="ss">f&quot;Число </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, вероятно, простое.&quot;</span>)</span>
+<span id="cb5-35"><a href></a>                <span class="bu">print</span>(<span class="ss">f&quot;(Вероятность ошибки &lt; 1 / (4^</span><span class="sc">{</span>t<span class="sc">}</span><span class="ss">))&quot;</span>) </span>
+<span id="cb5-36"><a href></a>            <span class="cf">else</span>:</span>
+<span id="cb5-37"><a href></a>                <span class="bu">print</span>(<span class="ss">f&quot;Число </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> - составное.&quot;</span>)</span>
+<span id="cb5-38"><a href></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb5-39"><a href></a>        <span class="bu">print</span>(<span class="st">&quot;Ошибка: Пожалуйста, введите корректные целые числа.&quot;</span>)</span>
+<span id="cb5-40"><a href></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb5-41"><a href></a>        <span class="bu">print</span>(<span class="ss">f&quot;Произошла ошибка: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="выводы" class="slide level2">
 <h2>Выводы</h2>
-<ul>
-<li>Задачи выполнены: Все четыре алгоритма НОД были успешно реализованы на Python в соответствии с заданием.</li>
-<li>Навыки: Получен практический опыт реализации фундаментальных алгоритмов теории чисел, лежащих в основе современной криптографии.</li>
-</ul>
+<p>Задачи выполнены: Все три вероятностных теста (Ферма, Соловэя-Штрассена, Миллера-Рабина) и алгоритм вычисления символа Якоби были успешно реализованы на Python.</p>
+<p>Ключевой вывод: Практическая демонстрация (на 561) подтвердила теоретическую слабость теста Ферма и показала надежность тестов Соловэя-Штрассена и Миллера-Рабина.</p>
+<p>Навыки: Получен практический опыт реализации фундаментальных алгоритмов, лежащих в основе генерации ключей для современных асимметричных криптосистем.</p>
 
 </section></section>
     </div>

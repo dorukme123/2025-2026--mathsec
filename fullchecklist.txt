@@ -5,7 +5,7 @@ GitHub cli: sudo apt install gh
 - mkdir 2026-1--study-mathsec
 - cd 2026-1--study-mathsec
 - gh repo create 2026-1--study-mathsec --template=yamadharma/course-directory-student-template --public
-- git clone --recursive git@github.com:yamadharma/course-directory-student-template.git
+- git clone --recursive https://github.com/yamadharma/course-directory-student-template.git
 copy the files inside the folder and paste them directly into directory
 - mkdir -p release/files
 - make list
@@ -70,6 +70,6 @@ after this copy the CHANGELOG.md and paste it to release folder change the old o
 : tag = Finish lab01
 - git push --all
 - git push --tags
-- gh release create v2.0.0 -F ../release/CHANGELOG.md ../release/files/*
+- gh release create v2.0.0 -F C:\Users\Meric\Desktop\2025-2026--mathsec\release\CHANGELOG.md C:\Users\Meric\Desktop\2025-2026--mathsec\release\files\*
 
 
