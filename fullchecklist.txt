@@ -70,6 +70,6 @@ after this copy the CHANGELOG.md and paste it to release folder change the old o
 : tag = Finish lab01
 - git push --all
 - git push --tags
-- gh release create v2.0.0 -F C:\Users\Meric\Desktop\2025-2026--mathsec\release\CHANGELOG.md C:\Users\Meric\Desktop\2025-2026--mathsec\release\files\*
+- gh release create v6.0.0 -F C:\Users\Meric\Desktop\2025-2026--mathsec\release\CHANGELOG.md C:\Users\Meric\Desktop\2025-2026--mathsec\release\files\*
 
 
